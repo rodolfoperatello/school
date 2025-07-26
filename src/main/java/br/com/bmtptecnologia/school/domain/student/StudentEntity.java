@@ -2,13 +2,14 @@ package br.com.bmtptecnologia.school.domain.student;
 
 import java.time.LocalDate;
 
-public class Student {
-   private String name;
-   private String lastName;
-   private String phone;
-   private LocalDate birthday;
+public class StudentEntity {
+   private final String name;
+   private final String lastName;
+   private final String phone;
+   private final LocalDate birthday;
+   private Long addressId;
 
-   public Student(String name, String lastName, String phone, LocalDate birthday) {
+   public StudentEntity(String name, String lastName, String phone, LocalDate birthday) {
       this.name = name;
       this.lastName = lastName;
       this.phone = phone;
@@ -29,5 +30,9 @@ public class Student {
 
    public LocalDate getBirthday() {
       return this.birthday;
+   }
+
+   public void changeAddress(Long addressId) {
+      this.addressId = addressId;
    }
 }
