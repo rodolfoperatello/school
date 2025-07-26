@@ -1,6 +1,9 @@
 package br.com.bmtptecnologia.school.domain.student;
 
 import java.time.LocalDate;
+import java.util.Objects;
+
+import br.com.bmtptecnologia.school.domain.exception.ChangeAddressException;
 
 public class StudentEntity {
    private final String name;
@@ -33,6 +36,11 @@ public class StudentEntity {
    }
 
    public void changeAddress(Long addressId) {
+      if (Objects.isNull(addressId)) {
+         throw new ChangeAddressException(
+             String.format("status=address-id-cannot-be-empty, studentName=%s, " +
+                 "studentLastName=%s", this.name, this.lastName));
+      }
       this.addressId = addressId;
    }
 }
