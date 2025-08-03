@@ -13,21 +13,10 @@ public class CreateStudentUseCaseImpl implements CreateStudentUseCase {
    }
 
    @Override
-   public StudentEntity execute(CreateStudentDTO createStudentDTO) {
-      CreateStudentVO createStudentVO = this.fromDTOtoVO(createStudentDTO);
-
+   public StudentEntity execute(CreateStudentVO createStudentVO) {
       StudentEntity studentEntity = this.createStudentFactory.execute(createStudentVO);
 
       // add validações
       return studentEntity;
-   }
-
-   private CreateStudentVO fromDTOtoVO(CreateStudentDTO createStudentDTO) {
-      return new CreateStudentVO(
-          createStudentDTO.getName(),
-          createStudentDTO.getLastName(),
-          createStudentDTO.getPhone(),
-          createStudentDTO.getBirthday()
-      );
    }
 }

@@ -4,6 +4,10 @@ import br.com.bmtptecnologia.school.domain.address.factory.AddressFactory;
 import br.com.bmtptecnologia.school.domain.address.repository.AddressRepository;
 import br.com.bmtptecnologia.school.domain.address.usecase.CreateAddressUseCase;
 import br.com.bmtptecnologia.school.domain.address.usecase.CreateAddressUseCaseImpl;
+import br.com.bmtptecnologia.school.domain.outbox.factory.OutboxFactory;
+import br.com.bmtptecnologia.school.domain.outbox.repository.OutboxRepository;
+import br.com.bmtptecnologia.school.domain.outbox.usecase.CreateOutboxUseCase;
+import br.com.bmtptecnologia.school.domain.outbox.usecase.CreateOutboxUseCaseImpl;
 import br.com.bmtptecnologia.school.domain.student.factory.CreateStudentFactory;
 import br.com.bmtptecnologia.school.domain.student.repository.StudentRepository;
 import br.com.bmtptecnologia.school.domain.student.usecase.CreateStudentUseCase;
@@ -26,9 +30,15 @@ public class UseCase {
    }
 
    @Bean
+   public CreateOutboxUseCase createOutboxUseCase(OutboxFactory outboxFactory) {
+      return new CreateOutboxUseCaseImpl(outboxFactory);
+   }
+
+   @Bean
    public PersistAddressAndStudentUseCase persistAddressAndStudentUseCase(
-       AddressRepository addressRepository,
-       StudentRepository studentRepository) {
-      return new PersistAddressAndStudentUseCaseImpl(addressRepository, studentRepository);
+           AddressRepository addressRepository,
+           StudentRepository studentRepository,
+           OutboxRepository outboxRepository) {
+      return new PersistAddressAndStudentUseCaseImpl(addressRepository, studentRepository, outboxRepository);
    }
 }

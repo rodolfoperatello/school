@@ -1,5 +1,6 @@
 package br.com.bmtptecnologia.school.infrastructure.repository.outbox;
 
+import br.com.bmtptecnologia.school.domain.outbox.OutboxEntity;
 import br.com.bmtptecnologia.school.domain.outbox.repository.OutboxRepository;
 import org.springframework.stereotype.Repository;
 
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public class OutboxRepositoryImpl implements OutboxRepository {
 
     @Override
-    public void save() {
+    public void save(OutboxEntity outboxEntity) {
 
     }
 }

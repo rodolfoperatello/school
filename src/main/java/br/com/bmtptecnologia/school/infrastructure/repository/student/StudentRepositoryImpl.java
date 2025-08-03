@@ -6,7 +6,7 @@ import br.com.bmtptecnologia.school.domain.student.repository.StudentRepository;
 public class StudentRepositoryImpl implements StudentRepository {
 
    @Override
-   public void create(StudentEntity studentEntity) {
+   public void save(StudentEntity studentEntity) {
 
    }
 }

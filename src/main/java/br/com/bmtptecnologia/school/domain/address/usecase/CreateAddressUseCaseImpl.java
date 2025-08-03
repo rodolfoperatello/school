@@ -16,24 +16,12 @@ public class CreateAddressUseCaseImpl implements CreateAddressUseCase {
    }
 
    @Override
-   public AddressEntity execute(CreateAddressDTO createAddressDTO) {
-      CreateAddressVO createAddressVO = this.fromDTOtoVO(createAddressDTO);
-
+   public AddressEntity execute(CreateAddressVO createAddressVO) {
       AddressEntity addressEntity = this.addressFactory.create(createAddressVO);
       if (Objects.isNull(addressEntity)) {
          throw new CouldNotCreateAddressException("status=address-cannot-be-null");
       }
 
       return addressEntity;
-   }
-
-   private CreateAddressVO fromDTOtoVO (CreateAddressDTO createAddressDTO) {
-      return new CreateAddressVO(
-          createAddressDTO.getStreet(),
-          createAddressDTO.getNumber(),
-          createAddressDTO.getNeighborhood(),
-          createAddressDTO.getCity(),
-          createAddressDTO.getState()
-      );
    }
 }

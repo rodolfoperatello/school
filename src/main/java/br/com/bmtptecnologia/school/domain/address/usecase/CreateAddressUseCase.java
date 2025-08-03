@@ -5,5 +5,5 @@ import br.com.bmtptecnologia.school.domain.address.vo.CreateAddressVO;
 import br.com.bmtptecnologia.school.domain.address.AddressEntity;
 
 public interface CreateAddressUseCase {
-   AddressEntity execute(CreateAddressDTO createAddressDTO);
+   AddressEntity execute(CreateAddressVO createAddressVO);
 }
