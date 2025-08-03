@@ -1,4 +1,4 @@
-package br.com.bmtptecnologia.school.infrastructure.bean;
+package br.com.bmtptecnologia.school.infrastructure.domain;
 
 import br.com.bmtptecnologia.school.domain.address.factory.AddressFactory;
 import br.com.bmtptecnologia.school.domain.address.factory.AddressFactoryImpl;
