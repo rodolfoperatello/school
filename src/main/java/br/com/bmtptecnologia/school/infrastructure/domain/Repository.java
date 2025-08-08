@@ -5,7 +5,8 @@ import br.com.bmtptecnologia.school.domain.outbox.repository.OutboxRepository;
 import br.com.bmtptecnologia.school.domain.student.repository.StudentRepository;
 import br.com.bmtptecnologia.school.infrastructure.repository.address.AddressRepositoryImpl;
 import br.com.bmtptecnologia.school.infrastructure.repository.outbox.OutboxRepositoryImpl;
-import br.com.bmtptecnologia.school.infrastructure.repository.student.StudentRepositoryImpl;
+import br.com.bmtptecnologia.school.infrastructure.repository.student.jpa.StudentJPARepository;
+import br.com.bmtptecnologia.school.infrastructure.repository.student.jpa.StudentJPARepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,8 +19,8 @@ public class Repository {
     }
 
     @Bean
-    public StudentRepository studentRepository() {
-        return new StudentRepositoryImpl();
+    public StudentRepository studentRepository(StudentJPARepository studentJPARepository) {
+        return new StudentJPARepositoryImpl(studentJPARepository);
     }
 
     @Bean

@@ -14,7 +14,7 @@ public class CreateOutboxUseCaseImpl implements CreateOutboxUseCase {
     @Override
     public OutboxEntity execute(OutboxVO outboxVO) {
 
-        OutboxEntity outboxEntity = this.outboxFactory.create(null);
+        OutboxEntity outboxEntity = this.outboxFactory.create(outboxVO);
 
         return outboxEntity;
 
